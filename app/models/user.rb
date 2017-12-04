@@ -16,6 +16,10 @@ class User < ApplicationRecord
     reviewers.ids
   end
 
+  def reviewer_by_stack(stack_id)
+    reviewers.find_by(stack_id: stack_id)
+  end
+
   def reviewees
     self.class.joins(:subscriptions_users).where(subscriptions_users: { kind: 'review', subscriber_id: id })
   end

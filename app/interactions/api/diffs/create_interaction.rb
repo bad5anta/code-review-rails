@@ -5,7 +5,6 @@ module Api
       hash :code_changes, strip: false
 
       integer :author_id
-      integer :reviewer_id
       integer :stack_id
 
       def execute
@@ -16,7 +15,7 @@ module Api
         author = User.find author_id
         diff.author = author if author
 
-        reviewer = User.find reviewer_id
+        reviewer = author.reviewer_by_stack(stack_id)
         diff.reviewer = reviewer if reviewer
 
         stack = Stack.find stack_id
