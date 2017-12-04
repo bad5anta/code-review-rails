@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 20171204123933) do
 
   create_table "subscriptions_users", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "watcher_id"
+    t.bigint "subscriber_id"
     t.bigint "stack_id"
     t.integer "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["stack_id"], name: "index_subscriptions_users_on_stack_id"
+    t.index ["subscriber_id"], name: "index_subscriptions_users_on_subscriber_id"
     t.index ["user_id"], name: "index_subscriptions_users_on_user_id"
-    t.index ["watcher_id"], name: "index_subscriptions_users_on_watcher_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,5 +65,5 @@ ActiveRecord::Schema.define(version: 20171204123933) do
   add_foreign_key "diffs", "users", column: "reviewer_id"
   add_foreign_key "subscriptions_users", "stacks"
   add_foreign_key "subscriptions_users", "users"
-  add_foreign_key "subscriptions_users", "users", column: "watcher_id"
+  add_foreign_key "subscriptions_users", "users", column: "subscriber_id"
 end
