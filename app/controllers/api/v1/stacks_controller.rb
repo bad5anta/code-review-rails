@@ -2,7 +2,7 @@ module Api
   module V1
     class StacksController < ApplicationController
       def index
-        respond_with_interaction Stacks::IndexInteraction
+        render json: Stacks::IndexInteraction.run!
       end
     end
   end

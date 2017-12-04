@@ -4,22 +4,26 @@ module Api
       before_action :authenticate_request!
 
       def index
-        respond_with_interaction Users::IndexInteraction
+        render json: Users::IndexInteraction.run!, include: serialize_includes
       end
 
       def show
-        respond_with_interaction Users::ShowInteraction, user_params
+        render json: Users::ShowInteraction.run!(user_params), include: serialize_includes
       end
 
       def update
-        respond_with_interaction Users::UpdateInteraction, user_params
+        render json: Users::UpdateInteraction.run!(user_params), include: serialize_includes
       end
 
       def destroy
-        respond_with_interaction Users::DestroyInteraction, user_params
+        render json: Users::DestroyInteraction.run!(user_params), include: serialize_includes
       end
 
       private
+
+      def serialize_includes
+        'stacks'
+      end
 
       def user_params
         params.permit!
