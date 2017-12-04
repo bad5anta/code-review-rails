@@ -16,7 +16,7 @@ module AuthConcern
   end
 
   def auth_token
-    @auth_token ||= JsonWebToken.decode(http_token)
+    @auth_token ||= CodeReview::JsonWebToken.decode(http_token)
   end
 
   def user_id_present?
