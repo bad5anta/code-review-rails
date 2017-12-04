@@ -1,6 +1,6 @@
 module Api
   module Diffs
-    class CreateInteraction < ActiveInteraction::Base
+    class UpdateInteraction < ActiveInteraction::Base
 
       hash :code_changes, strip: false
 
