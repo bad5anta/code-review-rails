@@ -12,6 +12,10 @@ module Api
                include: serialize_includes
       end
 
+      def update
+        render json: Diffs::UpdateInteraction.run!(diff_params.merge(author_id: @current_user.id)), include: serialize_includes
+      end
+
       private
 
       def diff_params
