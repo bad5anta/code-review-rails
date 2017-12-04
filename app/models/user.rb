@@ -9,14 +9,26 @@ class User < ApplicationRecord
   has_many :subscriptions_users
 
   def reviewers
-    subscriptions_users.reviewers(id)
+    self.class.joins(:subscriptions_users).where(subscriptions_users: { kind: 'review', user_id: id })
   end
 
-  def reviewee
-    subscriptions_users.reviewee(id)
+  def reviewer_ids
+    reviewers.ids
+  end
+
+  def reviewees
+    self.class.joins(:subscriptions_users).where(subscriptions_users: { kind: 'review', subscriber_id: id })
+  end
+
+  def reviewee_ids
+    reviewees.ids
   end
 
   def subscribers
-    subscriptions_users.subscribers(id)
+    self.class.joins(:subscriptions_users).where(subscriptions_users: { kind: 'watch', user_id: id })
+  end
+
+  def subscriber_ids
+    subscribers.ids
   end
 end
