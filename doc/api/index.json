@@ -1,0 +1,17 @@
+{
+  "resources": [
+    {
+      "name": "Session",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Success update sales order",
+          "link": "session/success_update_sales_order.json",
+          "groups": "public",
+          "route": "/api/v1/sessions",
+          "method": "post"
+        }
+      ]
+    }
+  ]
+}

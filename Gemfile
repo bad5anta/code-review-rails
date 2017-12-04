@@ -29,13 +29,17 @@ gem 'puma', '~> 3.7'
 
 gem 'active_model_serializers'
 gem 'active_interaction'
-
+gem 'apitome'
 gem 'bcrypt'
+gem 'faker'
 gem 'jwt'
+gem 'rspec_api_documentation'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do

@@ -3,9 +3,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
 
   def create
     if @user.authenticate(user_params[:password])
-      render json: {
-        id: @user.id, email: @user.email, name: @user.name, token: CodeReview::JsonWebToken.create_token(@user)
-      }
+      render json: { id: @user.id, email: @user.email, name: @user.name, token: @user.token }, status: :created
     else
       render body: nil, status: :unauthorized
     end
