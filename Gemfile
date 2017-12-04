@@ -28,6 +28,8 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 
 gem 'active_model_serializers'
+gem 'active_interaction'
+
 gem 'bcrypt'
 gem 'jwt'
 
