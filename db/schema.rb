@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204120527) do
+ActiveRecord::Schema.define(version: 20171204123933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "diffs", force: :cascade do |t|
+    t.jsonb "code_changes"
+    t.string "status", default: "new"
+    t.bigint "author_id"
+    t.bigint "reviewer_id"
+    t.bigint "stack_id"
+    t.index ["author_id"], name: "index_diffs_on_author_id"
+    t.index ["reviewer_id"], name: "index_diffs_on_reviewer_id"
+    t.index ["stack_id"], name: "index_diffs_on_stack_id"
+  end
 
   create_table "stacks", force: :cascade do |t|
     t.string "name"
@@ -38,4 +49,6 @@ ActiveRecord::Schema.define(version: 20171204120527) do
     t.string "password_digest", null: false
   end
 
+  add_foreign_key "diffs", "users", column: "author_id"
+  add_foreign_key "diffs", "users", column: "reviewer_id"
 end
