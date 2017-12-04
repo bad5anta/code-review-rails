@@ -33,16 +33,10 @@ module RescueFromConcern
   private
 
   def render_404
-    respond_to do |format|
-      format.html { render file: "#{Rails.root}/public/404", layout: false, status: :not_found }
-      format.all { render body: nil, status: :not_found }
-    end
+    render body: nil, status: :not_found
   end
 
   def render_500
-    respond_to do |format|
-      format.html { render file: "#{Rails.root}/public/500", layout: false, status: :internal_server_error }
-      format.all { render body: nil, status: :internal_server_error }
-    end
+    render body: nil, status: :internal_server_error
   end
 end
