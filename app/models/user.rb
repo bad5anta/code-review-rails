@@ -17,7 +17,7 @@ class User < ApplicationRecord
   end
 
   def reviewer_by_stack(stack_id)
-    reviewers.find_by(stack_id: stack_id)
+    reviewers.find_by(subscriptions_users: { stack_id: stack_id } )
   end
 
   def reviewees

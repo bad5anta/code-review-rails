@@ -59,13 +59,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'mail.smtp2go.com',
+    user_name: 'alxz.test@gmail.com',
+    password: 'alxtest123',
+    address: 'smtp.gmail.com',
+    domain: 'code-review.herokuapp.com',
     port: 587,
-    domain: 'gmail.com',
     authentication: :plain,
-    enable_starttls_auto: true,
-    user_name: 'qweqwejag@gmail.com',
-    password: 'qanofwhlyuqykoxg'
+    enable_starttls_auto: true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
