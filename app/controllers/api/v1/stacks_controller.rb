@@ -1,6 +1,6 @@
 module Api
   module V1
-    class StacksController < ApplicationController
+    class StacksController < BaseController
       def index
         render json: Stacks::IndexInteraction.run!
       end
