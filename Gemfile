@@ -28,7 +28,7 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 
 gem 'active_interaction'
-gem 'apitome'
+# gem 'apitome'
 gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'faker'

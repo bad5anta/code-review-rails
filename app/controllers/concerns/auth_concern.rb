@@ -4,9 +4,9 @@ module AuthConcern
   protected
 
   def authenticate_request!
-    raise Errors::UnauthorizedUserError unless user_id_present?
+    raise CodeReview::Errors::UnauthorizedUserError unless user_id_present?
     @current_user = User.find(auth_token[:user][:id])
-    raise Errors::UnauthorizedUserError unless password_correct?(@current_user)
+    raise CodeReview::Errors::UnauthorizedUserError unless password_correct?(@current_user)
   end
 
   private

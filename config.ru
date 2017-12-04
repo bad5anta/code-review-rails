@@ -12,11 +12,12 @@ use Rack::Cors do
     resource '/api/v1',
              headers: :any,
              methods: %i[get post delete put options head],
-             credentials: true,
+             credentials: false,
              max_age: 0
     resource '*',
              headers: :any,
              methods: %i[get post delete put options head],
+             credentials: false,
              max_age: 0
   end
 end

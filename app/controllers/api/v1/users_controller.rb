@@ -1,6 +1,8 @@
 module Api
   module V1
-    class UsersController < ApplicationController
+    class UsersController < BaseController
+      before_action :authenticate_request!
+
       def index
         respond_with_interaction Users::IndexInteraction
       end

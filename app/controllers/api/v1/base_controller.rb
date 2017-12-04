@@ -1,3 +1,7 @@
-class Api::V1::BaseController < ApplicationController
-  include AuthConcern
+module Api
+  module V1
+    class BaseController < ApplicationController
+      include AuthConcern
+    end
+  end
 end
