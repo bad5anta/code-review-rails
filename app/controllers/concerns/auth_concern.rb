@@ -24,6 +24,6 @@ module AuthConcern
   end
 
   def password_correct?(user)
-    http_token && auth_token && auth_token.dig(:user, :password) == user.encrypted_password
+    http_token && auth_token && auth_token.dig(:user, :password) == user.password_digest
   end
 end
